@@ -105,3 +105,10 @@ a {
     color-scheme: dark;
   }
 }
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  cursor: pointer;
+}
