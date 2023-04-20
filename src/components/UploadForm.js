@@ -46,18 +46,6 @@ function UploadForm() {
   return (
     <form onSubmit={handleSubmit}>
       <input type='file' onChange={(e) => setFile(e.target.files[0])} />
-      {/* {file ? (
-        <p>{file.name}</p>
-      ) : (
-        <div {...getRootProps()} className='dropzone'>
-          <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop the Excel file here ...</p>
-          ) : (
-            <p>Drag and drop the Excel file here, or click to select file</p>
-          )}
-        </div>
-      )} */}
       <div>
         <label htmlFor='name'>Name Column:</label>
         <input
@@ -86,7 +74,7 @@ function UploadForm() {
         />
       </div>
       <button type='submit' disabled={!file}>
-        Upload and Process
+        Upload
       </button>
     </form>
   );

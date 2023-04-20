@@ -1,8 +1,6 @@
-// pages/api/upload.js
 import nextConnect from 'next-connect';
 import multer from 'multer';
 import XLSX from 'xlsx';
-import { MongoClient } from 'mongodb';
 
 const storage = multer.memoryStorage();
 
@@ -42,20 +40,6 @@ const handler = nextConnect()
       price: parseFloat(item[req.body.price]),
       quantity: parseInt(item[req.body.quantity], 10),
     }));
-    try {
-      // const client = await mongoClient();
-      const mongoClient = new MongoClient(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      const res = await mongoClient
-        .db()
-        .collection('products')
-        .insertMany(mappedData);
-      res.status(200).json(res);
-    } catch (error) {
-      console.log('error from mongo', error);
-    }
 
     res.status(200).json(mappedData);
   });
